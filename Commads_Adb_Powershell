@@ -1,0 +1,13 @@
+# install apks from a folder
+Get-ChildItem -Filter *.apk | ForEach-Object { 
+adb install-multi-package $_.FullName}
+
+# install specific apks from a folder
+adb install-multi-package Bee.apk Timer.apk
+
+# move multiple files from a folder to phone
+Get-ChildItem -Filter *.apk | ForEach-Object { 
+adb push $_.FullName /storage/emulated/0/download/SPAuto
+
+# move single file from a folder to phone
+adb push UdemyUnrealEngine5BlueprintsMultiplayerRPGInventorySystem.part1.rar /storage/emulated/0/Download/inventory/
